@@ -1,33 +1,27 @@
 name: Build
 
-# permissions:
-#   contents: write
-
 env:
+  APP_HELLO: ${{ vars.APP_HELLO }}
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
   push:
-    branches:
-      - main
     tags:
       - v*.*.*
 
 jobs:
-  build:
-    name: Build artifacts
+  vercel:
+    name: Build & Deploy (Vercel)
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
-      - name: Pull Vercel environment information
+      - name: Setup Vercel build environment
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Build artifacts
+      - name: Build the application
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
