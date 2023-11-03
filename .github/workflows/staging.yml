@@ -13,7 +13,6 @@ jobs:
   vercel:
     name: Build & Deploy (Staging)
     runs-on: ubuntu-latest
-    environment: staging
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3

@@ -29,9 +29,6 @@ On local:
 On Github:
 
 1. create a new repository
-1. setup `production` and `staging` environments (Github’s environment)
-   - `repository → settings → environments`
-1. setup any environment secrets and variables
 
 On Vercel:
 
@@ -44,4 +41,10 @@ On Vercel:
    - `VERCEL_TOKEN`
    - `VERCEL_ORG_ID`
    - `VERCEL_PROJECT_ID`
+1. set up `production`, `preview` and `development` environment variables
+
+On local:
+
+1. push to deploy
+   - `git push && git push --tags`
 
