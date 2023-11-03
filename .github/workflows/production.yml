@@ -1,7 +1,6 @@
-name: Build
+name: Vercel (Production)
 
 env:
-  APP_HELLO: ${{ vars.APP_HELLO }}
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
@@ -12,8 +11,9 @@ on:
 
 jobs:
   vercel:
-    name: Build & Deploy (Vercel)
+    name: Build & Deploy (Production)
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3

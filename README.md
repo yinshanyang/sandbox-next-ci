@@ -3,7 +3,7 @@
 Tag-based build and deployment of a Next.js application to:
 
 - Vercel
-- Cloudflare
+- ~~Cloudflare~~: deploying to Cloudflare requires us to integrate their SDK in our code, oh the coupling
 
 ## Vercel
 
@@ -24,13 +24,18 @@ On local:
 1. create `vercel.json`
    - `{ "git": { deploymentEnabled: false } }`
 
+On Github:
+
+1. setup `production` and `staging` environments (Github’s environment)
+   - `repository → settings → environments`
+1. setup any environment secrets and variables
+
 On Vercel:
 
 1. create project
-1. collect secrets and import to github
+1. collect secrets and import to github at a repository level
    - `VERCEL_ORGANIZATION_ID`
    - `VERCEL_PROJECT_ID`
    - `VERCEL_TOKEN`
-1. ??? disconnect project from git ???
+1. disconnect project from git
 
-## Cloudflare
