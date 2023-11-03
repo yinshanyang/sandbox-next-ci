@@ -7,11 +7,13 @@ Tag-based build and deployment of a Next.js application to:
 
 ## Vercel
 
+> The cleanest way to get an integration with Vercel.
+
 - https://vercel.com/guides/can-you-deploy-based-on-tags-releases-on-vercel
 
 Secrets required:
 
-- `VERCEL_ORGANIZATION_ID`
+- `VERCEL_ORG_ID`
   - `account → settings → general`
 - `VERCEL_PROJECT_ID`
   - `project → settings → general → project id`
@@ -26,16 +28,20 @@ On local:
 
 On Github:
 
+1. create a new repository
 1. setup `production` and `staging` environments (Github’s environment)
    - `repository → settings → environments`
 1. setup any environment secrets and variables
 
 On Vercel:
 
-1. create project
-1. collect secrets and import to github at a repository level
-   - `VERCEL_ORGANIZATION_ID`
-   - `VERCEL_PROJECT_ID`
-   - `VERCEL_TOKEN`
+1. create a new project and link to the github repository
+   - set framework to `next.js`
+   - ignore that the deployment failed
 1. disconnect project from git
+   - `project → settings → git`
+1. collect secrets and import to github at a repository level
+   - `VERCEL_TOKEN`
+   - `VERCEL_ORG_ID`
+   - `VERCEL_PROJECT_ID`
 
